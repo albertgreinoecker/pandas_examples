@@ -24,14 +24,14 @@ print("ones:", a3)
 a4 = np.zeros(10)
 print("zeros:", a4)
 
-a5 = np.random.rand(10);
+a5 = np.random.rand(10)
 print("random.rand:", a5)
 
-a6 = np.random.randint(10,20,500);
+a6 = np.random.randint(10,20,500)
 print("random.randint:", a6)
 
 #Mehrdimensional
-ad1 = np.random.rand(3,2,4);
+ad1 = np.random.rand(3,2,4)
 print("random:", ad1)
 
 

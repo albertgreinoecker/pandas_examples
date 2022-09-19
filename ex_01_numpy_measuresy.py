@@ -2,9 +2,9 @@ import numpy as np
 from matplotlib import pyplot as plt
 from scipy import stats
 
-a1 = np.random.normal(170,10, 1000); # Array zur Veranschaulichung der Berechnungen
+a1 = np.random.normal(170,10, 1000) # Array zur Veranschaulichung der Berechnungen
 print(np.sort(a1))
-plt.hist(np.sort(a1), bins=30)
+plt.hist(np.sort(a1), bins=50)
 #plt.plot(np.sort(a1))
 plt.show()
 #print (a1)

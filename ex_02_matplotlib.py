@@ -94,6 +94,6 @@ y = np.random.rand(100)
 
 
 x = np.random.normal(170, 10, 1000) #Normalverteilung (Mittelwert, Standardabweichung, Anzahl)
-plt.hist(x, bins=20); #bins: Wie viele Balken
+plt.hist(x, bins=20) #bins: Wie viele Balken
 plt.savefig("out/m7.png")
 plt.show()
