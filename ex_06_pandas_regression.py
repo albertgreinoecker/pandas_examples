@@ -22,41 +22,41 @@ plt.show()
 
 years = y7g.index # Nach jeder Gruppierung steht die Gruppierungsvariable im Index
 mean_temp = y7g.mean_temp
-pred_years = range(2030, 2160)
 
-model = sm.OLS(mean_temp, years).fit()  # Methode der kleinsten Quadrate
+df_reg = pd.DataFrame({"years" : years, "mean_temp" : mean_temp})
+df_reg = df_reg.astype({'years':'int'})
+
+pred_years = np.arange(2030, 2160)
+
+model =  sm.OLS.from_formula('mean_temp ~ years ', df_reg).fit()
 print(model.summary())
-print(model.rsquared) # R-Quadrat als Maß wie gut das Modell ist
-print(dir(model))
+print("RSQ:", model.rsquared) # R-Quadrat als Maß wie gut das Modell ist
 print("x", model.params[0]) # Das x der Formel. Normalerweise sollte noch ein zweiter Wert sein für die Konstante in y = ax + b
-#print("fittedvalues", model.fittedvalues) # Die Punkte die auf der Regressionsgerade liegen
-#print("resid:", model.resid) # Abweichungen von Punkten auf der geraden zu den Datenpunkten
-predictions = model.predict(range(2000, 2030)) # Vorhersage der entsprechenden Temperaturwerte für die Jahre
+print("y", model.params[1])
+print("fittedvalues", model.fittedvalues) # Die Punkte die auf der Regressionsgerade liegen
+print("resid:", model.resid) # Abweichungen von Punkten auf der Geraden zu den Datenpunkten
+
+df_pred =pd.DataFrame({"years" : np.arange(1980,2040)})
+predictions = model.predict(df_pred) # Vorhersage der entsprechenden Temperaturwerte für die Jahre
 
 
-#print(predictions)
-plt.plot(range(2000, 2030), predictions)
-plt.show()
-
-reg =  model.predict(years)
-
+plt.plot(df_pred.years, predictions)
 plt.plot(y7g)
-plt.plot(years, reg)
-plt.xlim([1980, 2030])
+plt.xlim([1980, 2040])
 plt.show()
 
 #subplots
-fig, axes = plt.subplots(nrows=2, ncols=2)
-
-t1 = df.loc[df['month'] == 1][['year','mean_temp']].groupby('year').mean()
-t4 = df.loc[df['month'] == 4][['year','mean_temp']].groupby('year').mean()
-t9 = df.loc[df['month'] == 9][['year','mean_temp']].groupby('year').mean()
-t12 = df.loc[df['month'] == 12][['year','mean_temp']].groupby('year').mean()
-
-t1.plot(ax=axes[0,0], title="Jänner", legend=False);
-t4.plot(ax=axes[0,1], title="April", legend=False);
-t9.plot(ax=axes[1,0], title="September", legend=False);
-t12.plot(ax=axes[1,1], title="Dezember", legend=False);
-
-fig.tight_layout() # Dann überlagert sich die Ausgabe nicht
-plt.show();
+# fig, axes = plt.subplots(nrows=2, ncols=2)
+#
+# t1 = df.loc[df['month'] == 1][['year','mean_temp']].groupby('year').mean()
+# t4 = df.loc[df['month'] == 4][['year','mean_temp']].groupby('year').mean()
+# t9 = df.loc[df['month'] == 9][['year','mean_temp']].groupby('year').mean()
+# t12 = df.loc[df['month'] == 12][['year','mean_temp']].groupby('year').mean()
+#
+# t1.plot(ax=axes[0,0], title="Jänner", legend=False);
+# t4.plot(ax=axes[0,1], title="April", legend=False);
+# t9.plot(ax=axes[1,0], title="September", legend=False);
+# t12.plot(ax=axes[1,1], title="Dezember", legend=False);
+#
+# fig.tight_layout() # Dann überlagert sich die Ausgabe nicht
+# plt.show();
