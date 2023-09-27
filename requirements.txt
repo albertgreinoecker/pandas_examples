@@ -1,5 +1,5 @@
-numpy~=1.21.2
-matplotlib~=3.5.1
-Pillow~=9.1.0
-scipy~=1.7.3
-future~=0.18.2
+numpy
+matplotlib
+Pillow
+scipy
+future
