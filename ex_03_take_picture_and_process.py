@@ -6,7 +6,7 @@ from ex_03_pillow_steganograpy import encode_in_image, extract_from_image
 
 root = Tk()
 root.title("Steganographie")
-root.geometry("1600x1300")
+root.geometry("1800x1600")
 
 root.configure(background='lightgray')
 
@@ -19,15 +19,7 @@ text = Text(root, height=20, width=80)
 text.insert(END, "Any Text")
 text.grid(row=0, column=1,  padx=(30, 10))
 
-img1 = Image.open('out/campic.png')
-img1 = ImageTk.PhotoImage(img1)
-labeli1 = Label(root, image=img1)
-labeli1.grid(row=2, column=0)
 
-img2 = Image.open('out/campic-msg.png')
-img2 = ImageTk.PhotoImage(img2)
-labeli2 = Label(root, image=img2)
-labeli2.grid(row=2, column=1)
 
 labelPic1 = Label(root, text="Bild ohne Nachricht")
 labelPic1.grid(row=3, column=0)
@@ -53,6 +45,16 @@ def take_pic():
     print(t)
     encoded_im = encode_in_image('out/campic.png', t)
     encoded_im.save('out/campic-msg.png')
+
+    img1 = Image.open('out/campic.png')
+    img1 = ImageTk.PhotoImage(img1)
+    labeli1 = Label(root, image=img1)
+    labeli1.grid(row=2, column=0)
+
+    img2 = Image.open('out/campic-msg.png')
+    img2 = ImageTk.PhotoImage(img2)
+    labeli2 = Label(root, image=img2)
+    labeli2.grid(row=2, column=1)
 
     img1 = Image.open('out/campic.png')
     img1 = ImageTk.PhotoImage(img1)
