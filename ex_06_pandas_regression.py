@@ -6,6 +6,7 @@ import statsmodels.api as sm
 # Einlesen des Datensatzes
 df = pd.read_csv('data/london_weather.csv')
 
+
 print(df.columns)
 
 df['mean_temp'].plot(title="Durchschnittstemperaturen")
@@ -31,8 +32,8 @@ pred_years = np.arange(2030, 2160)
 model =  sm.OLS.from_formula('mean_temp ~ years', df_reg).fit()
 print(model.summary())
 print("RSQ:", model.rsquared) # R-Quadrat als Maß wie gut das Modell ist
-print("x", model.params[1]) # Das x der Formel. Normalerweise sollte noch ein zweiter Wert sein für die Konstante in y = ax + b
-print("y", model.params[0])
+print("a", model.params[1]) # Das x der Formel. Normalerweise sollte noch ein zweiter Wert sein für die Konstante in y = ax + b
+print("b", model.params[0])
 print("fittedvalues", model.fittedvalues) # Die Punkte die auf der Regressionsgerade liegen
 print("resid:", model.resid) # Abweichungen von Punkten auf der Geraden zu den Datenpunkten
 
