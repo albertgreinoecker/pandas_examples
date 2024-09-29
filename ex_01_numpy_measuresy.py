@@ -20,7 +20,7 @@ print("Maximum", np.max(a1))
 
 a2 = np.random.randint(10,20,500)
 m = stats.mode(a2)
-print("Modus", m.mode[0], m.count[0])
+print("Modus", m.mode, m.count)
 
 print("STREUUNGSMAßE")
 print("Standardabweichung", np.std(a1))
