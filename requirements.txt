@@ -3,3 +3,5 @@ matplotlib
 Pillow
 scipy
 future
+seaborn
+tabulate
