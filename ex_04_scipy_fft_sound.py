@@ -2,7 +2,9 @@
 import matplotlib.pyplot as plt
 from scipy.io import wavfile as wav
 from scipy.fftpack import fft
+from scipy.io import wavfile
 import numpy as np
+
 rate, data = wav.read('audio/Applaus.wav')  #freq, sound
 print(data.shape)
 
@@ -16,12 +18,8 @@ plt.plot(data[:,1], 'b')
 plt.xlabel("right channel, sample #")
 plt.tight_layout()
 plt.savefig("out/s1_over_time.png")
-
-#plt.plot(data[:,0])
 plt.show()
 
-#fft_out = fft(data) # np.fft.rfft
-#fft_out_parts = fft_out
 
 fft_spectrum = np.fft.rfft(data)
 freq = np.fft.rfftfreq(data.size, d=1./rate)
@@ -34,7 +32,24 @@ print(freq)
 plt.plot(freq, np.abs(fft_spectrum[:,0]))
 #print(fft_out.shape)
 plt.savefig("out/s2_frequencies.png")
-
+plt.show()
 plt.plot(freq[500:3000], np.abs(fft_spectrum[500:3000,0]))
 #print(fft_out.shape)
+
 plt.savefig("out/s2_frequencies_part.png")
+plt.show()
+
+
+rate, data = wav.read('audio/song.wav')  #freq, sound
+reversed_data = data[::-1, 0]
+wavfile.write('audio/song_reversed.wav', rate, reversed_data)
+
+data = data / np.max(np.abs(data), axis=0)
+
+# Amplify the audio by a factor of 2
+amplified_data = data * 2
+wavfile.write('audio/song_amplified.wav', rate, amplified_data)
+
+# Clip values to maintain the original range (-1, 1)
+clipped_data = np.clip(amplified_data, -1.0, 1.0)
+wavfile.write('audio/song_clipped.wav', rate, clipped_data)
