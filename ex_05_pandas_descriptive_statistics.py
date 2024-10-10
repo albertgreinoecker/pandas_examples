@@ -68,6 +68,8 @@ print(s)
 bez_sum_1993_1994 = df.loc[:, ['Bezirk', 'j1993', 'j1994']].groupby('Bezirk').sum()
 print(bez_sum_1993_1994)
 
+nr_cols = df.iloc[:,3:]
+
 # Aufsummieren von Zeilen
 row_sum = nr_cols.sum(axis=1)
 df['sum_all'] = row_sum
