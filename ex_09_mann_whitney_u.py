@@ -10,20 +10,21 @@ df = pd.read_csv('data/student-mat.csv', sep=";")
 #print(df.columns)
 
 a = df['Walc']
-a_m = a.loc[df['sex'] == 'M']
-a_f = a.loc[df['sex'] == 'F']
+a_t = a.loc[df['famsup'] == 'yes']
+a_f = a.loc[df['famsup'] == 'no']
 
-plt.boxplot([a_m, a_f])
-plt.xticks(ticks=[1,2],labels=['M', 'F'])
+print(a_t)
+print(a_f)
+plt.boxplot([a_t, a_f])
+plt.xticks(ticks=[1,2],labels=['Ja', 'Nein'])
 plt.show()
 
-s, p = mannwhitneyu(a_m, a_f)
+s, p = mannwhitneyu(a_t, a_f)
 
 print("test statistics:", s)
 print("p-value", p)
 
-print([a_f, a_m])
-
-x = pd.crosstab(df['Walc'],df['sex'], normalize='index')
+#print([a_f, a_t])
+x = pd.crosstab(df['Walc'],df['famsup'], normalize='index')
 x.plot.bar(rot=0)
 plt.show()
