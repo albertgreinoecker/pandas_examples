@@ -21,9 +21,9 @@ plt.show()
 
 chi, p, dof, expected = chi2_contingency(ct_internet_higher)
 print ("Chi:",chi)
-print ("p:", p)
+print ("p:", p)  # < 0.05 : Signifikanter Unterschied in den Gruppen
 print ("dof" ,dof)
-print ("expected",expected)
+print ("expected",expected) # Erwartete Werte
 
 sns.heatmap(ct_internet_higher, annot=False, cmap="YlGnBu")
 
