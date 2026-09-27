@@ -1,4 +1,5 @@
-import numpy as np # Hat sich so eingebürgert dass als np importiert wird
+import numpy as np  # Hat sich so eingebürgert dass als np importiert wird
+
 a = np.array([1,2,3]) # So wird ein 1-dimensionales Array angelegt
 print(a) # Ausgabe des Arrays
 print(a.shape) # Wie viele Dimensionen
@@ -70,7 +71,7 @@ print(dr1)
 #################################
 # Rechenoperationen
 
-r1 = np.arange(10) * 10;
+r1 = np.arange(10) * 10
 print(r1[1:3])
 
 #################################
@@ -105,10 +106,12 @@ print("ab < 5:")
 print(ab[ab < 5])
 print("~ab < 5:") #~ist 'not'
 print(ab[~(ab < 5)])
-
+np.where(ab < 5) #Gibt die Indices zurück
 # Umgang mit fehlenden Werten
 
 a = np.array([np.nan, 1,2,np.nan,3,4,5])
+print(a.mean())
+print(np.nanmean(a))
 print (a[~np.isnan(a)])
 
 
@@ -143,7 +146,7 @@ print(af2[0])
 print(af2[1])
 
 #Lösche die 3. Zeile in af
-af3 = np.delete(af, 2,0);
+af3 = np.delete(af, 2,0)
 print(af3)
 
 #Schmeisse die doppelten hinaus und gib Ergebnis als 1-dim Array zurück
@@ -151,5 +154,18 @@ af4 = np.unique(af)
 print(af4)
 
 ##########################################################################
-# String - Funktionen
 
+am = np.array([[1,2,3],[4,5,6],[7,8,9]])
+x = am[am < 4]
+print(x)
+y = np.where(am < 4)
+print(y)
+
+np.arange(100,201)
+np.arange(101) + 100
+
+a20 = np.arange(100,200,2)
+q = np.quantile(a20,0.05)
+print(q)
+
+a20[a20 < q]

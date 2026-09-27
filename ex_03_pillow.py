@@ -1,5 +1,6 @@
-from PIL import Image
+from matplotlib import image, pyplot
 from numpy import asarray
+from PIL import Image
 
 img = Image.open('img/htl-logo.png')
 
@@ -10,8 +11,7 @@ img.show() # Anzeigen des Bildes im default-Bildeditor
 
 
 #Laden des Bildes mit Matplotlib
-from matplotlib import image
-from matplotlib import pyplot
+
 image = image.imread('img/htl-logo.png')
 print(image.dtype) # Werte als float32 gespeichert
 print(image.shape) # (x,y, farbebenen) farb-ebenen = [r,g,b,opacity]

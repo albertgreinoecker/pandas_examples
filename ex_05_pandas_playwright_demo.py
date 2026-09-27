@@ -1,5 +1,6 @@
 from playwright.sync_api import sync_playwright
 
+
 def scrape_example():
     # Startet Playwright im synchronen Modus
     with sync_playwright() as p:

@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
-from matplotlib import pyplot as plt
 import statsmodels.api as sm
+from matplotlib import pyplot as plt
 
 # Einlesen des Datensatzes
 df = pd.read_csv('data/london_weather.csv')

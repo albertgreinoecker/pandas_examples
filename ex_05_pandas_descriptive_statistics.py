@@ -1,17 +1,15 @@
-import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
-
 # Einlesen des Datensatzes
 df = pd.read_excel('data/bev_meld.xlsx')
-
-
 # Macht man das nicht, heissen die Spalten z.B. 1993 als Zahl. Das kann in Zukunft zu Problemen führen,
 # besser ist sie heissen j1993
 base = ['Bezirk','Gemnr','Gemeinde']
 years = df.columns[3:].astype(str)
+print(years)
 base.extend('j' + years)
+print(base)
 df.columns = base
 print(df.j1993) # das funktionert jetzt nämlich
 #print(df.Bezirk)
@@ -27,11 +25,11 @@ plt.show()
 
 pd.set_option('display.expand_frame_repr', False) # So werden alle Spalten angezeigt
 
-print(df.describe())
+print(df.iloc[:,3:10].describe())
 
 # Kennenlernen und Überprüfen der Daten
 print("Die ersten Datensätze:")
-print(df.head()) # Zeige die ersten Datensätze an
+print(df.iloc[:,3:10].head()) # Zeige die ersten Datensätze an
 print("Die letzten Datensätze:")
 print(df.tail(3)) # Man kann die Anzahl als Parameter setzen
 
@@ -43,7 +41,7 @@ print(df.iloc[3:5,1:5])  # Von den Zeilen 3 und 4 sollen die ersten 4 Spalten an
 print(df.Bezirk)
 
 # Man kann mehrere Spalten auswählen:
-print(df[['Gemnr', 'j1993']])
+print(df[['Gemeinde', 'j1993']])
 
 # Über index Location kann man gleich mehrere Spalten auswählen
 print(df.iloc[:,3:]) # Alle Spalten ab dem Index 3
@@ -53,7 +51,7 @@ print(df.iloc[:,[3,5,7]]) # Die Spalten 3, 5, 7
 print(df.groupby('Bezirk')['Bezirk'].count())
 
 #Aggregieren von (mehreren) Spalten
-print(df.groupby('Bezirk').agg(sum1993 = ('j1993', 'mean'), sum1994 = ('j1994', 'sum')))
+print(df.groupby('Bezirk').agg(sum1993 = ('j1993', 'sum'), sum1994 = ('j2021', 'sum')))
 print(df.groupby('Bezirk').sum()) # Wendet die Summe auf alle Spalten an
 # Somit können auch Spalten drin sein, die man nicht haben möchte (z.B. Gemnr)
 bez_sum = df.groupby('Bezirk').sum()

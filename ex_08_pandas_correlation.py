@@ -1,9 +1,7 @@
-import numpy as np
 import pandas as pd
 import seaborn as sns
 from matplotlib import pyplot as plt
-from scipy.stats import spearmanr, pearsonr
-import statsmodels.api as sm
+from scipy.stats import spearmanr
 
 # Einlesen des Datensatzes
 df = pd.read_csv('data/student-mat.csv', sep=";")

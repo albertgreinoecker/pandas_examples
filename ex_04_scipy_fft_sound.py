@@ -1,9 +1,8 @@
 #inspired by: https://klyshko.github.io/teaching/2019-02-22-teaching
 import matplotlib.pyplot as plt
-from scipy.io import wavfile as wav
-from scipy.fftpack import fft
-from scipy.io import wavfile
 import numpy as np
+from scipy.io import wavfile
+from scipy.io import wavfile as wav
 
 rate, data = wav.read('audio/Applaus.wav')  #freq, sound
 print(data.shape)

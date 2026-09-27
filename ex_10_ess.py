@@ -2,7 +2,6 @@
 import pandas as pd
 from matplotlib import pyplot as plt
 
-
 # Einlesen des Datensatzes
 df = pd.read_csv('/home/albert/Downloads/european_social_survey/ESS8e02.1_F1.csv', sep=",")
 
@@ -30,6 +29,6 @@ gndr_cntry = pd.crosstab(df['gndr'], df['cntry'])
 # in Pycharm: Variablenansicht. Rechte Maustaste auf Variable => Vie as DataFrame liefert eine bessere Anzeige
 print(gndr_cntry)
 
-
+df_trstplc = df[df.trstplc <= 10]
 
 

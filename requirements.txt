@@ -7,3 +7,5 @@ future
 seaborn
 tabulate
 openpyxl
+playwright
+ruff

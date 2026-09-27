@@ -1,12 +1,18 @@
 from tkinter import *
-from PIL import Image, ImageTk
-import cv2
-from ex_03_pillow_steganograpy import encode_in_image, extract_from_image
 
+import cv2
+from PIL import Image, ImageTk
+
+from ex_03_pillow_steganograpy import encode_in_image, extract_from_image
 
 root = Tk()
 root.title("Steganographie")
-root.geometry("1800x1600")
+root.geometry("1600x1600")
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+
+# Set the maximum size of the window to the screen size
+root.wm_maxsize(screen_width, screen_height)
 
 root.configure(background='lightgray')
 
@@ -17,7 +23,7 @@ cap= cv2.VideoCapture(0)
 
 text = Text(root, height=20, width=80)
 text.insert(END, "Any Text")
-text.grid(row=0, column=1,  padx=(30, 10))
+text.grid(row=0, column=1,  padx=(10, 10))
 
 
 

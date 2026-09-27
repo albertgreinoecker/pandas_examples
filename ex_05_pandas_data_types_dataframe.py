@@ -1,6 +1,4 @@
 import pandas as pd
-import numpy as np
-
 
 # einfaches Errzeugen eines Data Frame
 data = [[1, 'a'], [2, 'b'] , [ 3, 'c']]

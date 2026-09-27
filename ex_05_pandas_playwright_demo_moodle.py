@@ -1,7 +1,8 @@
-from playwright.sync_api import sync_playwright
+import os
+
 import pandas as pd
 from dotenv import load_dotenv
-import os
+from playwright.sync_api import sync_playwright
 
 # Load .env file
 load_dotenv()

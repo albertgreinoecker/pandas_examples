@@ -33,6 +33,6 @@ plt.xticks([1,2],  ["1979","2020"])
 plt.show()
 
 # Gegenüberstellung als Punkte
-# plt.plot(sun1979, "r.")
-# plt.plot(sun2020, "g.")
-# plt.show()
+plt.plot(sun1979, "r*")
+plt.plot(sun2020, "g.")
+plt.show()

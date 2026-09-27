@@ -1,6 +1,7 @@
-from PIL import Image
+import bitarray as ba  # Here used for conversion from string to bit  and vice versa
 import numpy as np
-import bitarray as ba # Here used for conversion from string to bit  and vice versa
+from PIL import Image
+
 
 def encode_text(text, encoding='utf-8'):
     arr = ba.bitarray()

@@ -1,7 +1,7 @@
-from PIL import Image
-from numpy import asarray
 import numpy as np
 from matplotlib import pyplot as plt
+from numpy import asarray
+from PIL import Image
 
 image = Image.open('img/htl-logo.png')
 
